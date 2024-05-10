@@ -1,0 +1,56 @@
+body {
+    background-color: white;
+    font-family: "Source Code Pro", monospace;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+* ::selection{
+    color: white;
+    background: #000000;
+}
+h1::selection, h2::selection{
+    color:rgb(50, 75, 255);
+    background: black;
+}
+
+nav a {
+    display: sticky;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-decoration: none;
+    transition: 0.4s;
+
+}
+nav a:hover{
+    /*text-shadow: 15px 10px 20px rgb(50, 75, 255);*/
+    background-color: black;
+    color: white;
+    /*font-weight: bold;*/
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Adjusts spacing between elements */
+    width: auto;
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#prof {
+    margin-left: auto; /* Aligns the profile element to the right */
+}
+.current{
+    color:rgb(50, 75, 255);
+    font-weight: bold;
+}
+#status{
+    color: red
+}

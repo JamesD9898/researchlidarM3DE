@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="shortcut icon" href="../media/logo.png" />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: grey;
+      }
+
+      .choose button {
+        background-color: white;
+        color: black;
+      }
+      nav {
+        background-color: lightgrey;
+        /*box-shadow: 1px 1px 4px 1px grey;*/
+        border-bottom: ;
+      }
+      /*.camera {
+        position: absolute;
+        height: 80vh;
+        width: 100vw;
+        background-color: beige;
+        top: 10vh;
+      }*/
+      .camera {
+        padding: 5px;
+        margin: 10px;
+        position: relative;
+        overflow: hidden;
+        height: 60vh;
+        width: 100vw;
+        border-radius: 20px;
+      }
+
+      .camera::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - 60px);
+        height: 100%;
+        background-image: url("https://via.placeholder.com/1000");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="current">M3DE</a>
+      <p class="status">Robotics Interface</p>
+      <a href="../dash.html" class="current">Back</a>
+    </nav>
+    <div class="camera">
+      <h2>Live Video Data</h2>
+    </div>
+    <div class="3d Plot">
+      <p>It</p>
+    </div>
+    <script src="../redirect.js"></script>
+  </body>
+</html>

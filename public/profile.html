@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="shortcut icon" href="media/logo.png" />
+
+    <style>
+      button {
+        font-family: "Source Code Pro", monospace;
+        background-color: rgb(211, 211, 211);
+        padding: 10px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        height: 50px;
+        width: 300px;
+        align-self: center;
+        background-color: rgb(50, 75, 255);
+        border-radius: 100px;
+      }
+      button h2 {
+        margin: 0;
+        padding: 0;
+      }
+      .topbutton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">M3DE</a>
+      <a href="dash.html">Dashboard</a>
+      <a href="#" id="prof" class="current">Profile</a>
+    </nav>
+    <h1 id="prof"></h1>
+    <div class="topbutton">
+      <button class="signout"><h2 id="buttonh">Sign Out</h2></button>
+    </div>
+    <script src="redirect.js"></script>
+    <script>
+      var signout = document.querySelector(".signout");
+      signout.addEventListener("click", function (event) {
+        event.preventDefault();
+        async function signout() {
+          await fetch("/signout");
+          console.log("cookiedeleted");
+        }
+        signout();
+        window.location.replace("auth.html"); // Redirect after successful sign up
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M3DE</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="shortcut icon" href="media/logo.png" />
+
+    <style>
+      body {
+        overflow-y: none;
+      }
+      h1 {
+        text-align: left;
+        padding: calc(25vh - 6vw);
+        padding-left: 0;
+        font-size: 6vw;
+      }
+      .container {
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
+      }
+
+      .list {
+        margin-left: 100px;
+      }
+
+      .list ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: left;
+      }
+
+      .list ul li {
+        margin-bottom: 10px;
+      }
+
+      .image {
+        width: 500px;
+        height: auto;
+      }
+      #h3 {
+        margin-top: 200px;
+      }
+      #abstracth {
+        margin-top: 20vh;
+        text-align: right;
+      }
+      #abstract {
+        text-align: right;
+        width: 60vw;
+        margin-left: calc(40vw - 60px);
+        font-size: 1.2em;
+      }
+      li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        transition: 0.4s;
+      }
+      li a:hover {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .lessimportant {
+        color: grey;
+        margin-top: 0;
+      }
+      #authors {
+        margin-bottom: 0;
+      }
+      @media only screen and (max-width: 768px) {
+        h1 {
+          font-size: 50px;
+          text-align: center;
+        }
+
+        .container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .image {
+          width: 80%;
+          margin-bottom: 20px;
+        }
+
+        .list {
+          margin-left: 0;
+        }
+
+        #abstract {
+          width: 80%;
+          margin: 0 auto;
+          text-align: justify;
+        }
+
+        #authors {
+          text-align: center;
+        }
+
+        .lessimportant {
+          text-align: center;
+        }
+
+        nav {
+          text-align: center;
+        }
+
+        nav a {
+          display: block;
+          margin: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="current">M3DE</a>
+      <a href="dash.html">Dashboard</a>
+      <a href="profile.html" id="prof">Profile</a>
+    </nav>
+    <h1>
+      Manipulable <br />
+      3D Visualization of <br />Physical Environments.
+    </h1>
+    <h2 id="authors">James Doherty & Michael Hernandez</h2>
+    <p class="lessimportant">
+      Bergen County Academies Mechatronics Reserach Lab
+    </p>
+    <h2 id="abstracth">Abstract</h2>
+    <p id="abstract">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quaerat,
+      quasi blanditiis numquam dolorem nisi corrupti, provident minus officiis,
+      veniam porro fuga nam veritatis quos omnis aperiam dicta nihil adipisci
+      soluta optio ipsa repellat eum quas. Error labore veritatis eius
+      dignissimos sequi, voluptates quam amet! Repudiandae excepturi laudantium
+      commodi eligendi. Lorem ipsum dolor sit amet, consectetur adipisicing
+      elit. Impedit voluptates ab reprehenderit inventore adipisci explicabo
+      rem? Accusantium blanditiis earum suscipit vitae quibusdam laboriosam
+      impedit harum eveniet ut illum corrupti dolore unde quis assumenda
+      exercitationem, totam minima iste provident corporis delectus.
+    </p>
+    <div class="container">
+      <div class="image">
+        <img src="https://via.placeholder.com/500" alt="Placeholder Image" />
+      </div>
+      <div class="list">
+        <h2>Points</h2>
+        <ul>
+          <li><a href="#">Item....</a></li>
+          <li><a href="#">Item.....</a></li>
+          <li><a href="#">Item....</a></li>
+          <li><a href="#">Item...</a></li>
+          <li><a href="#">Item..</a></li>
+        </ul>
+      </div>
+    </div>
+    <!--<script src="redirect.js"></script>-->
+    <script>
+      const cookie = document.cookie.match(/sessionName=([^;]+)/);
+      const elements = document.querySelectorAll("#prof");
+      let username;
+      console.log("scriptloaded");
+      async function verify() {
+        try {
+          const response = await fetch("/check");
+          const data = await response.json();
+
+          // Access the message and username from the JSON response
+          const message = data.message;
+          username = data.username;
+          const status = response.status;
+
+          // Log or use the message and username as needed
+          console.log("Message:", message);
+          console.log("Username:", username);
+          if (status != 200) {
+            async function signout() {
+              await fetch("/signout");
+              console.log("cookiedeleted");
+            }
+            signout();
+            return;
+          }
+
+          // Return the message and username or perform other actions
+          elements.forEach((element) => {
+            element.textContent = `Welcome Back ${username}!`;
+          });
+          return;
+        } catch (error) {
+          console.error("Error:", error);
+          return;
+        }
+      }
+      verify();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="shortcut icon" href="media/logo.png" />
+
+    <style>
+      #projects {
+        height: 500px;
+        width: calc(100vw - 60px);
+        background-color: black;
+        overflow: scroll;
+      }
+      .container {
+        display: flex;
+        margin: 0;
+        justify-content: space-between;
+      }
+      .container div {
+        height: 450px;
+        width: 33%;
+        background-color: rgb(238, 238, 238);
+        padding: 20px;
+        border: 1px solid rgb(238, 238, 238);
+        border-radius: 20px;
+        margin-left: 10px; /* Adjust this value to change the space between divs */
+        margin-right: 10px; /* Adjust this value to change the space between divs */
+        position: relative; /* Added to position the button */
+      }
+      .container div:first-child {
+        margin-left: auto; /* Reset margin for the first div */
+      }
+      .container div:last-child {
+        margin-right: auto; /* Reset margin for the last div */
+      }
+      .container div h2 {
+        margin: 0;
+      }
+      button {
+        font-family: "Source Code Pro", monospace;
+        background-color: rgb(211, 211, 211);
+        padding: 10px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        height: 50px;
+        width: 50%;
+        align-self: center;
+        background-color: rgb(50, 75, 255);
+        border-radius: 100px;
+        position: absolute; /* Added to position the button */
+        bottom: 20px; /* Adjust this value to change the distance from the bottom */
+        left: 50%; /* Position the button horizontally centered */
+        transform: translateX(
+          -10%
+        ); /* Adjust to center the button horizontally */
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">M3DE</a>
+      <a href="#" class="current">Dashboard</a>
+      <a href="profile.html" id="prof">Profile</a>
+    </nav>
+    <h1>App Dashboard</h1>
+    <h2>My Projects</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis non
+      obcaecati excepturi cum nemo ducimus!
+    </p>
+    <div class="container">
+      <div>
+        <h2>Slot 1</h2>
+        <button onclick="window.location.href='/application/app.html'">
+          Open
+        </button>
+        <!-- Added button inside the first slot div -->
+      </div>
+      <!--<div>
+        <h2>Slot 2</h2>
+        <button>Open</button>
+        <!=-- Added button inside the second slot div --=>
+      </div>
+      <div>
+        <h2>Slot 3</h2>
+        <button>Open</button>
+        <=!-- Added button inside the third slot div --=>
+      </div> -->
+    </div>
+
+    <script src="redirect.js"></script>
+  </body>
+</html>
